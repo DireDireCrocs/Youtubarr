@@ -2,8 +2,8 @@ import json
 import responses
 from django.conf import settings
 from freezegun import freeze_time
-from tubarr.models import Snapshot, Artist, TrackItem
-from tubarr.tasks import refresh_playlists, resolve_missing_mbids, build_snapshot
+from youtubarr.models import Snapshot, Artist, TrackItem
+from youtubarr.tasks import refresh_playlists, resolve_missing_mbids, build_snapshot
 from tests.factories import PlaylistFactory
 
 YT_ITEMS = {

@@ -1,6 +1,6 @@
 import json
 from django.conf import settings
-from tubarr.models import Snapshot
+from youtubarr.models import Snapshot
 
 def test_lidarr_requires_token(client, settings):
     settings.LIDARR_TOKEN = "secret"

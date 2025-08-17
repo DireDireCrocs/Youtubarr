@@ -75,7 +75,7 @@ def delete_item(request, item_id):
 def healthz(request):
     return HttpResponse("ok")
 
-def lidarr_tubarr_view(request):
+def lidarr_youtubarr_view(request):
     # token via ?token=... or X-Api-Key header
     token = request.GET.get("token") or request.headers.get("X-Api-Key")
     if not (settings.LIDARR_TOKEN and token == settings.LIDARR_TOKEN):

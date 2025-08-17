@@ -1,5 +1,5 @@
 services:
-  tubarr:
+  youtubarr:
     build: .
     env_file: .env
     ports:

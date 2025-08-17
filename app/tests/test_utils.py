@@ -1,4 +1,4 @@
-from tubarr.utils import guess_artist_from_title
+from youtubarr.utils import guess_artist_from_title
 
 def test_guess_artist_basic():
     assert guess_artist_from_title("Artist - Song", "X") == "Artist"

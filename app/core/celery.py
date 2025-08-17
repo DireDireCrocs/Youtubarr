@@ -14,5 +14,5 @@ def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(
         minutes * 60,
         name="refresh_playlists_and_snapshot",
-        sig=app.signature("tubarr.tasks.refresh_all_and_snapshot"),
+        sig=app.signature("youtubarr.tasks.refresh_all_and_snapshot"),
     )

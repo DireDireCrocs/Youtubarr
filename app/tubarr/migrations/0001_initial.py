@@ -61,8 +61,8 @@ class Migration(migrations.Migration):
                 ('blacklisted', models.BooleanField(default=False)),
                 ('published_at', models.DateTimeField(blank=True, null=True)),
                 ('position', models.IntegerField(default=0)),
-                ('artist', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='tubarr.artist')),
-                ('playlist', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='items', to='tubarr.playlist')),
+                ('artist', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='youtubarr.artist')),
+                ('playlist', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='items', to='youtubarr.playlist')),
             ],
             options={
                 'unique_together': {('playlist', 'video_id')},

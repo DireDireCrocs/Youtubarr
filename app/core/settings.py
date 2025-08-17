@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "tubarr",
+    "youtubarr",
 ]
 
 MIDDLEWARE = [
@@ -71,7 +71,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        "DIRS": [BASE_DIR/"tubarr"/"templates"],
+        "DIRS": [BASE_DIR/"youtubarr"/"templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

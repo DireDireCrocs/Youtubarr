@@ -1,5 +1,5 @@
 import factory
-from tubarr import models
+from youtubarr import models
 
 class PlaylistFactory(factory.django.DjangoModelFactory):
     class Meta:

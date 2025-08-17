@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "[tubarr] running entrypoint…"
+echo "[youtubarr] running entrypoint…"
 
 python manage.py collectstatic --noinput
 python manage.py migrate --noinput

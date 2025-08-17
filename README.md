@@ -1,6 +1,6 @@
-# 🎵 Tubarr
+# 🎵 Youtubarr
 
-Tubarr is a bridge between YouTube playlists and Lidarr.
+Youtubarr is a bridge between YouTube playlists and Lidarr.
 It lets you sync YouTube playlists (e.g. "Liked Music" or your own playlists) into Lidarr as import lists, so Lidarr can automatically manage your music library.
 
 # 🚀 Features
@@ -43,7 +43,7 @@ In your terminal:
 - ytmusicapi oauth
 - Follow the instructions to get your oauth.json, which you need to put in the directory you mount to /data
 
-# ⚡ Running Tubarr
+# ⚡ Running Youtubarr
 
 Clone the repo and build:
 ```
@@ -75,4 +75,4 @@ http://localhost:8000/api/v1/lidarr?token=YOUR_TOKEN
 - Replace YOUR_TOKEN with your LIDARR_TOKEN from .env.
 - Save it.
 
-Lidarr will now treat Tubarr as a source of artists.
+Lidarr will now treat Youtubarr as a source of artists.
