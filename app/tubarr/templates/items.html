@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="display-6 fw-semibold mb-3">Items (latest)</h1>
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th style="width:3rem;">BL</th>
+            <th>Playlist</th>
+            <th>Video</th>
+            <th>Title</th>
+            <th>Artist guess</th>
+            <th>MBID</th>
+            <th>Published</th>
+            <th style="width:10rem;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="items-tbody">
+          {% for it in items %}
+            {% include "partials/item_row.html" with it=it %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // When server returns 204 on delete, remove the <tr hx-target="closest tr">
+    document.body.addEventListener('item-deleted', function(evt){
+      // htmx already removes the row if hx-swap="outerHTML" w/ 204? No.
+      // We'll rely on hx-target on the delete button instead (closest tr + swap:delete)
+    });
+  </script>
+{% endblock %}

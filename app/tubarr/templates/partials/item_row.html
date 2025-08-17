@@ -1,0 +1,37 @@
+<tr id="row-{{ it.id }}">
+  <td>
+    <form
+      hx-post="{% url 'toggle-blacklist' it.id %}"
+      hx-target="#row-{{ it.id }}"
+      hx-swap="outerHTML">
+      <input type="checkbox" name="blacklisted" {% if it.blacklisted %}checked{% endif %}
+             onchange="this.form.requestSubmit()">
+    </form>
+  </td>
+  <td class="text-monospace small">{{ it.playlist.playlist_id }}</td>
+  <td><a href="https://youtu.be/{{ it.video_id }}" target="_blank"> {{ it.video_id }} </a></td>
+  <td>
+    <form class="d-flex gap-2"
+          hx-post="{% url 'edit-item' it.id %}"
+          hx-target="#row-{{ it.id }}"
+          hx-swap="outerHTML">
+      <input type="text" name="title" value="{{ it.title }}" class="form-control form-control-sm" style="max-width: 22rem;">
+  </td>
+  <td>
+      <input type="text" name="artist_name_guess" value="{{ it.artist_name_guess }}" class="form-control form-control-sm" style="max-width: 14rem;">
+  </td>
+  <td class="small">{{ it.artist.mbid|default:"–" }}</td>
+  <td class="small text-nowrap">{{ it.published_at|date:"Y-m-d H:i" }}</td>
+  <td class="text-nowrap">
+      <button class="btn btn-sm btn-primary">Save</button>
+    </form>
+
+    <form
+      hx-post="{% url 'delete-item' it.id %}"
+      hx-target="#row-{{ it.id }}"
+      hx-swap="delete"
+      class="d-inline">
+      <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+    </form>
+  </td>
+</tr>

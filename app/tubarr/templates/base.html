@@ -1,0 +1,73 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tubarr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+
+  <style>
+    /* optional small tweaks */
+    code { background:#f6f6f6; padding:0 .25rem; border-radius:.2rem }
+  </style>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Tubarr</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Settings</a></li>
+          <li class="nav-item"><a class="nav-link {% if '/playlists' in request.path %}active{% endif %}" href="/playlists/">Playlists</a></li>
+          <li class="nav-item"><a class="nav-link {% if '/items' in request.path %}active{% endif %}" href="/items/">Items</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="container my-4 flex-grow-1">
+    {% if messages %}
+      <div class="mb-3">
+        {% for m in messages %}
+          <div class="alert alert-success py-2 mb-2">{{ m }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer sticks to bottom if short content -->
+  <footer class="bg-dark text-light text-center py-3 mt-auto">
+    <div class="container">
+      <small>&copy; {{ now|date:"Y" }} Tubarr</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- CSRF for HTMX: add Django's csrftoken header automatically -->
+  <script>
+    (function(){
+      function getCookie(name){
+        const v = document.cookie.split('; ').find(row => row.startsWith(name+'='));
+        return v ? decodeURIComponent(v.split('=')[1]) : null;
+      }
+      document.body.addEventListener('htmx:configRequest', (e) => {
+        const token = getCookie('csrftoken');
+        if (token) e.detail.headers['X-CSRFToken'] = token;
+      });
+    })();
+  </script>
+</body>
+</html>

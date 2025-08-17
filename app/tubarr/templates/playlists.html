@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="display-6 fw-semibold mb-4">Playlists</h1>
+
+<form method="post" class="row g-3 mb-4">{% csrf_token %}
+  <div class="col-auto">
+    <label class="visually-hidden" for="pid">Playlist ID</label>
+    <input id="pid" name="playlist_id" placeholder="PL... or OLAK5..." class="form-control">
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-success">Add</button>
+  </div>
+</form>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>Enabled</th>
+          <th>Playlist ID</th>
+          <th>Title</th>
+          <th>Channel</th>
+          <th>Last synced</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in playlists %}
+        <tr>
+          <td>{{ p.enabled }}</td>
+          <td class="text-monospace small">{{ p.playlist_id }}</td>
+          <td>{{ p.title }}</td>
+          <td>{{ p.channel_title }}</td>
+          <td class="text-nowrap">{{ p.last_synced|default:"-" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="text-muted">No playlists yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
