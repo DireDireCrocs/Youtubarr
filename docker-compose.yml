@@ -1,0 +1,13 @@
+services:
+  tubarr:
+    build: .
+    env_file: .env
+    ports:
+      - "8000:80"
+    volumes:
+      - ./data:/data
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
