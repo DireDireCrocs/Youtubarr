@@ -1,0 +1,14 @@
+Django==5.0.6
+django-environ==0.11.2
+celery==5.4.0
+redis==5.0.4
+requests==2.32.3
+python-dateutil==2.9.0.post0
+gunicorn==22.0.0
+pytest==8.3.2
+pytest-django==4.8.0
+responses==0.25.3
+factory_boy==3.3.0
+freezegun==1.5.1
+whitenoise[brotli]==6.6.0
+ytmusicapi
