@@ -45,8 +45,10 @@ In your terminal:
 
 # ⚡ Running Youtubarr
 
-Clone the repo and build:
+Clone the repo and build. You will need to copy the .env.example to .env and adjust some values prior to starting.
+If you are getting a CSRF error, you need to change the ALLOWED_HOSTS value to the IP address of the container host (localhost for instance).
 ```
+cp .env.example .env
 docker compose build
 docker compose up -d
 ```
@@ -74,5 +76,6 @@ http://localhost:8000/api/v1/lidarr?token=YOUR_TOKEN
 
 - Replace YOUR_TOKEN with your LIDARR_TOKEN from .env.
 - Save it.
+
 
 Lidarr will now treat Youtubarr as a source of artists.
